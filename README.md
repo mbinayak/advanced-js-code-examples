@@ -2,7 +2,7 @@
 
 > Inheritance Techniques
 
-- __proto__
+- `__proto___`
 - constructor
 - Object.create
 - class

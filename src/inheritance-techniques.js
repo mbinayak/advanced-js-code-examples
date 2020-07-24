@@ -65,3 +65,71 @@ console.log('******************************');
 /*
   Object.create experiments
 */
+
+let obj01 = {
+  propA: "valueA1",
+  propB: "valueB1"
+};
+
+let obj02 = Object.create(obj01);
+
+obj02.propC = "valueC2";
+obj02.propB = "valueB2";
+
+console.log(obj01, obj02);
+// { propA: 'valueA1', propB: 'valueB1' } { propC: 'valueC2', propB: 'valueB2' }
+console.log(obj01.propB, obj02.propB);
+// valueB1 valueB2
+console.log(obj01.propA, obj02.propA);
+// valueA1 valueA1
+
+console.log('******************************');
+
+/*
+  class experiments
+*/
+
+class C1 {
+  constructor() {
+    this.prop1 = 'A1';
+    this.prop2 = 'A2';
+  }
+}
+
+class C2 {
+  constructor() {
+    this.prop1 = 'B1';
+    this.prop2 = 'B2';
+  }
+}
+
+class C3 extends C1 {
+  printProps() {
+    console.log(`${this.prop1} , ${this.prop2}`);
+  }
+}
+class C4 extends C2 {
+  printProps() {
+    console.log(`${this.prop1} , ${this.prop2}`);
+  }
+}
+
+let o1 = new C3();
+let o2 = new C4();
+o1.printProps();
+o2.printProps();
+
+console.log(typeof C1, typeof C2);
+// function function
+console.log(C1.prototype, C2.prototype);
+// C1 {} C2 {}
+console.log(o1.__proto__, o2.__proto__);
+// C3 {} C4 {}
+console.log(o1.__proto__.__proto__, o2.__proto__.__proto__);
+// C1 {} C2 {}
+
+console.log('******************************');
+
+/*
+  ... operator experiments
+*/

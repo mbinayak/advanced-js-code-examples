@@ -13,7 +13,7 @@ const obj = {
         console.log(this);
         console.log(this.name);
     }
-}
+};
 
 const f1 = obj.printNameArrow.bind(obj); // arrow funcitons only bind this to lexical order
 const f2 = obj.printNameArrow;
